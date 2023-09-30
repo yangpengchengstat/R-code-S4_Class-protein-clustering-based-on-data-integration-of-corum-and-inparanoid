@@ -2,7 +2,7 @@
 
 A machine learning-based approach to identify reliable gold standards for protein complex composition prediction.
 
-![smallworldgraph (1)](https://github.com/yangpengchengstat/R-code-S4_Class-protein-clustering-based-on-data-integration-of-corum-and-inparanoid/assets/90017911/be43cd7e-c5a2-4919-8f36-f4d48f413607)
+![smallworldgraph (1)](https://github.com/yangpengchengstat/R-code-S4_Class-protein-clustering-based-on-data-integration-of-corum-and-inparanoid/smallworldgraph (1).png)
 
 ![Small world analysis](smallworldgraph (1).png)
 ---
