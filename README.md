@@ -1,7 +1,7 @@
 # R-code-S4_Class-protein-clustering-based-on-data-integration-of-corum-and-inparanoid
 
 A machine learning-based approach to identify reliable gold standards for protein complex composition prediction.
-smallworldgraph (1).png
+![logo](smallworldgraph (1).png)
 ---
 ## Introduction
 SPIFFED is modified from [Elution Profile-Based Inference of Protein Complexes (EPIC)](https://github.com/BaderLab/EPIC), a widely used protein protein interaction predictor and protein complex inference software. SPIFFED differs from EPIC in that it uses a convolutional neural network to analyze raw co-elution data, thereby eliminating the need for manual feature engineering. This approach enhances the accuracy of protein interaction predictions.
