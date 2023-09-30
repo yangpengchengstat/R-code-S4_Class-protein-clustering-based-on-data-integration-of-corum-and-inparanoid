@@ -1,8 +1,6 @@
 # R-code-S4_Class-protein-clustering-based-on-data-integration-of-corum-and-inparanoid
-![logo](SPIFFED_logo_2_.png)
 
-# SPIFFED – Software for Prediction of Interactome with Feature-extraction Free Elution Data
-A balanced end-to-end deep learning model for interactome prediction from co-fractionation/mass-spectrometry (CF-MS) data
+A machine learning-based approach to identify reliable gold standards for protein complex composition prediction.
 
 ---
 ## Introduction
