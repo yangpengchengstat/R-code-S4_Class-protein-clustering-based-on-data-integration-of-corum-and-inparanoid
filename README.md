@@ -5,46 +5,93 @@ A machine learning-based approach to identify reliable gold standards for protei
 ![Small world analysis](smallworldgraph (1).png)
 ---
 ## Introduction
-SPIFFED is modified from [Elution Profile-Based Inference of Protein Complexes (EPIC)](https://github.com/BaderLab/EPIC), a widely used protein protein interaction predictor and protein complex inference software. SPIFFED differs from EPIC in that it uses a convolutional neural network to analyze raw co-elution data, thereby eliminating the need for manual feature engineering. This approach enhances the accuracy of protein interaction predictions.
+The project addresses a fundamental issue of using CORUM complexes as reference knowledge in evaluation of protein complex predictions. In plant cell extracts, co-fraction mass spectrometry (CFMS) data and some published literature indicated that fully assembled CORUM complexes rarely exist. Using inaccurate gold standards would result in a wrong validation dataset, misleading prediction models to unreliable predictions. To overcome this issue, we have developed machine learning approaches to identify a refined set of gold standards by integrating the information of CORUM and CFMS. I hope you and your reviewers find the.
 
-
+ 
 ## Install
 
-To install SPIFFED, first make sure you have Python 2.7 
+1. First recommend to have R >= 4.2.0 
 
 
 ```
-$ git clone https://github.com/bio-it-station/SPIFFED
-$ conda create -n "EPIC_test" python=2.7.16
-
-$ pip install -r requirements.txt
-$ pip install beautifulsoup4
-$ pip install tensorflow==1.13.1
-$ pip install Keras==2.2.4
-$ conda install rpy2
-$ pip install scikit-plot
+$ install.packages("apcluster")
+$ install.packages("kohonen")
 ```
+2. once installation of ‘kohonen’ completed, find path in your computer:
+     path...\R\win-library\R version...\kohonen\Distances
+3. copy and paste the file “wcc3.cpp” into “Distances” folder found in step 2.
+4. Set the path in row in the following R code and copy and paste "S4 data integration corum inparanoid clustering.R" and the input data for rice clustering in the folder under the path that just created.
 
 
 Here is a list of dependent packages:
 
 ```
-1. scikit-learn
-2. requests
-3. scikit-learn
-4. beautifulsoup4
-5. mock
-6. kohonen
-7. numpy
-8. matplotlib
+1. library(tempR)
+2. library(methods)
+3. library(MASS)
+4. library(dplyr)
+5. library(ggplot2)
+6. library(ggrepel)
+7. library(openxlsx)
+8. library(tibble)
+9. library(tidyverse)
+10. library(kohonen) # self organizing map
+11. library(apcluster) # affinity propagation
 ```
 
 ---
 
-## Run SPIFFED
-Here is the main and only one command that you need to run:
+## Run
+Here the R commands that you need to run:
+```
+rm(list = ls()) 
+library(kohonen)  
+library(apcluster) 
+library(tempR)
+library(methods)
+library(MASS)
+library(dplyr)
+library(ggplot2)
+library(ggrepel)
+library(openxlsx)
+library(tibble)
+library(tidyverse)
+require(Rcpp) # help to integrate R and C++ via R functions
+sourceCpp(system.file("Distances", "wcc3.cpp", package = "kohonen",  mustWork = TRUE)) # expose C++ function wcc3 to R level
 
-> python ./src/main.py -s <b>`feature_selection`</b> <b>`input_directory`</b> -c <b>`gold_standard_file_path`</b> <b>`output_directory`</b> -o <b>`output_filename_prefix`</b> -M <b>`training_method`</b> -n <b>`number_of_cores`</b> -m EXP -f STRING --LEARNING_SELECTION <b>`learning method selection`</b> --K_D_TRAIN <b>`fold_or_direct_training`</b> --FOLD_NUM <b>`number_of_folds`</b> --TRAIN_TEST_RATIO <b>`testing_data_ratio`</b> --POS_NEG_RATIO <b>`negative_PPIs_ratio`</b> --NUM_EP <b>`number_of_elution_profiles`</b> --NUM_FRC <b>`number_of_fractions`</b> --CNN_ENSEMBLE <b>`ensemble_bool`</b>
+getwd()
+workingDir = "create your path"
+setwd(workingDir)
+source("S4 data integration corum inparanoid clustering.R")
+options(stringsAsFactors = FALSE)
+
+Protein.Complexes.Gold.Standard.Prediction.Rice <- new("Protein.Complexes.Gold.Standard.Prediction",
+                                                       mammalPlantSpecies=c("human", "rice"),
+                                                       mammalCORUM.Data=get(load(file="Data_CORUM_human.RData")),
+                                                       mammalPlantOrtholog.Data=read.table("SQLtable.Human.fasta-Rice.FA", header = T),
+                                                       mammalCORUM.StoichiometryData=get(load(file="CORUM_human_stoichiometry.RData")),
+                                                       plantProtnames.Data=get(load(file="rice_protnames_data.RData")),
+                                                       plantMmono.Data=get(load(file="rice_mmono_data.RData")),
+                                                       peakProfileMatrixB1=get(load("Matrix_SEC_rice_1.RData")),
+                                                       peakProfileMatrixB2=get(load("Matrix_SEC_rice_2.RData")),
+                                                       reproduciblePeakFeatures.Data=get(load(file="Rice_Reproducible_SEC_data_plant.RData")),
+                                                       singlePeakProts=get(load(file="Rice_prots_reproducible_single_peak.RData")),
+                                                       multiplePeakProts=get(load(file="Rice_protsreproducible_multiple_peak.RData")),
+                                                       mostCommonProtIDExample="LOC_Os03g51600.1",
+                                                       genomeCoverageCutoff=0.66666,
+                                                       RappCutoffNonmono = 1.6,
+                                                       RappCutoffChoosingThreshold=1,
+                                                       parametersSOM=list(num_of_multiple_of_sample_size=500, topo_shape="rectangular", toroidal_choice=F,  
+                                                                          user_weight=c(0.35, 0.35, 0.15, 0.15), 
+                                                                          dist_measure=c("WCCd3","WCCd3", "euclidean", "euclidean")),
+                                                       parametersAPC=list(q_1=0.95,q_2=0.85,q_3=0.8,maxits=50000, convits=10000, lam=0.9,detail=F),
+                                                       crossCorrelationRadius=3,
+                                                       exogenousClusteringResult=get(load(file="Clustering_resultRice.RData")),
+                                                       targetCluster="X1000")
+
+clustering_rice <- ProteinComplexGoldStandardPredictionWithinCORUMOrthologousComplexes(Protein.Complexes.Gold.Standard.Prediction.Rice)
+```
+
 
 
 ---
