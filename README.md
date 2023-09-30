@@ -98,8 +98,7 @@ clustering_rice <- ProteinComplexGoldStandardPredictionWithinCORUMOrthologousCom
 
 ## Parameter Definition
 
-1. (`-s` <b>`feature_selection`</b>) or (`--feature_selection` <b>`feature_selection`</b>): Specify correlation scores to be used in SPIFFED. Eight different correlation socres are implemented in SPIFFED, in order: <b>Mutual Information</b>, <b>Bayes Correlation</b>, <b>Euclidean Distance</b>, <b>Weighted Cross-Correlation</b>, <b>Jaccard Score</b>, <b>PCCN</b>, <b>Pearson Correlation Coefficient</b>, <b>Apex Score</b>, and <b>Raw elution profile</b>. "0" indicates that we don't use this correlation score and "1" indicates that we use this correlation score.
-    * If you want to run Convolutional Neural Network (CNN) or Label Spreading (LS), you must set this parameter to "<b>`-s` `000000001`</b>". (* note that there are 9 characters in the string).
+
     * If you want to run EPPC with SPIFFED scores, then you can set this parameter to "<b>`-s`  `11101001`</b>". (* note that there are 8 characters in the string). In this example, it will use Mutual Information, Bayes Correlation, Euclidean Distance, Jaccard Score and Apex Score. To specify the correlation scores to use:
 
 2. <b>`input_directory`</b>: This parameter stores the input directory where you store your elution profile file. It is recommended to use the abosulte path instead of relative path.
