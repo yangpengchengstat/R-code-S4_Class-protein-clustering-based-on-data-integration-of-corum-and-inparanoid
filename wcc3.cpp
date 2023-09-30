@@ -1,5 +1,4 @@
-/* C++ version of the WCCd dissimilarity, originally written in C for
-   the wccsom package */
+/* C++ version of the WCCd dissimilarity*/
 #include <Rcpp.h>
 
 typedef double (*DistanceFunctionPtr)(double *, double *, int, int);
