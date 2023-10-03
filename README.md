@@ -101,17 +101,17 @@ clustering_rice <- ProteinComplexGoldStandardPredictionWithinCORUMOrthologousCom
 ## Hyperparameter Tuning
 
 For the two-step clustering analysis, we determined three parameters of the clustering algorithms,including the weight w on "WCCd", the number of clusters in SOM, and the merging threshold for the AP algorithm.
-As SOM and AP are unsupervised learning, the process of training this model involves choosing the optimal hyperparameters such that the clustering algorithm will correctly label proteins in orthocomplexes where the memberships of the subunits are known. The two-stage model transferred knowledge between the five supervised clustering tasks by tuning the hyperparameters until all the 4 (sub)complexes have been clustered in consistent with the true memberships. $5$.
+As SOM and AP are unsupervised learning, the process of training this model involves choosing the optimal hyperparameters such that the clustering algorithm will correctly label proteins in orthocomplexes where the memberships of the subunits are known. The two-stage model transferred knowledge between the five supervised clustering tasks by tuning the hyperparameters until all the 4 (sub)complexes have been clustered in consistent with the true memberships.
 
 As SOM and AP are unsupervised learning, the process of training this model involves choosing the optimal hyperparameters such that the clustering algorithm will correctly label proteins in orthocomplexes where the memberships of the subunits are known. The two-stage model transferred knowledge between the five supervised clustering tasks by tuning the hyperparameters until all the five (sub)complexes have been clustered in consistent with the true memberships. We defined the trained model as
- \begin{equation}
+$ \begin{equation}
  f_M(x|v^*,w^*,q^*) =
   \begin{cases}
     f_{SOM}(x|v^*,w^*)=m       \\
     f_{AP}(x, m|q^*, w^*)=y   
   \end{cases}
   x\in C_i, \- \forall C_i \in \text{known} 
-\end{equation}
+\end{equation}$
 
 The trained model set is the set of trained functions with all possible combinations of optimal hyperparameters, 
 \begin{equation}
