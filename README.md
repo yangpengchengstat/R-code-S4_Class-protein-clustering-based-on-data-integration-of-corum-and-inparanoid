@@ -109,6 +109,8 @@ For the two-step clustering analysis, we determined three parameters of the clus
 2. (<b>`the number of clusters in SOM`</b>) or (<b>`the structure of neurons of SOM`</b>): After training, the relationship between the number of proteins in the orthocomplex are defined as follows:
    
 ```
+   # num_p is the number of proteins in the orthocomplex
+   # x_limit is the number of columns of the 2-d grid in SOM, and y_limit the number of rows.
    num_p <- length(prot_id_rep_c)
     
     if (num_p<6){
@@ -155,13 +157,18 @@ For the two-step clustering analysis, we determined three parameters of the clus
 ```
 
 
-4.  (`-c` <b>`gold_standard_file_path`</b>) or (`--cluster` <b>`gold_standard_file_path`</b>): This parameter stores the path to the gold standard file that you curated.
+4.  (<b>`The merging threshold for the AP algorithm`</b>) or (<b>`input preference in AP`</b>): This parameter stores the path to the gold standard file that you curated.
 
-5. <b>`output_directory`</b>: This parameter stores the path to the ouput directory. Make sure that you've already created the directory before running the command. It is recommended to use the abosulte path instead of relative path.
+```
+if (num_p<4){
+      apc <- apcluster(s=s, q=parameters_APC$q_1, maxits=parameters_APC$maxits, convits=parameters_APC$convits, lam=parameters_APC$lam, detail=parameters_APC$detail)
+    }else if (num_p>3 & num_p<6){
+      apc <- apcluster(s=s, q=parameters_APC$q_2, maxits=parameters_APC$maxits, convits=parameters_APC$convits, lam=parameters_APC$lam, detail=parameters_APC$detail)
+    }else{
+      apc <- apcluster(s=s, q=parameters_APC$q_3, maxits=parameters_APC$maxits, convits=parameters_APC$convits, lam=parameters_APC$lam, detail=parameters_APC$detail)
+    }
+```
 
-6. (`-o` <b>`output_filename_prefix`</b>) or (`--output_prefix` <b>`output_filename_prefix`</b>): You can specify a prefix name for all the output files. The default is "Out"
-
-7. (`-M` <b>`training_method`</b>) or (`--classifier` <b>`training_method`</b>): This parameter specifies what kind of classifier that you use. Possible options include <b>`RF`</b>, <b>`CNN`</b>, <b>`LS`</b>. Note that <b>`RF`</b> must comes w
 
 
     
