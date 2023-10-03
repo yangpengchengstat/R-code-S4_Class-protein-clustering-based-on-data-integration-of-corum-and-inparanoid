@@ -154,8 +154,7 @@ For the two-step clustering analysis, we determined three parameters of the clus
     }
 ```
 
-3.  (<b>`The merging threshold for the AP algorithm`</b>) or (<b>`input preference in AP`</b>): After training, the input preference was defined according to the number of the orthocomplex as below:
-
+3.  (<b>`The merging threshold for the AP algorithm`</b>) or (<b>`input preference in AP`</b>): After training, the input preference was defined according to the number of the orthocomplex as below: 
    if # of prots < 4, then the preference, q_1=0.95; else if of 3 < prots < 6, then q_2=0.85; else, q_3=0.8.
 
 ```
