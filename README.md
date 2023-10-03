@@ -103,9 +103,10 @@ clustering_rice <- ProteinComplexGoldStandardPredictionWithinCORUMOrthologousCom
 ## Parameter Definition
 
 user_weight is the combination weight of "WCCd3" and "euclidean". 
+
 1. (<b>`user_weight`</b>) : the combination weight of "WCCd3" and "euclidean". After training, the weight of 0.35 were assigned to "WCCd3" and 0.15 to "euclidean".
 2. <b>`input_directory`</b>: This parameter stores the input directory where you store your elution profile file. It is recommended to use the abosulte path instead of relative path.
-   ```
+```
    num_p <- length(prot_id_rep_c)
     
     if (num_p<6){
@@ -149,7 +150,7 @@ user_weight is the combination weight of "WCCd3" and "euclidean".
       x_limit <- 5
       y_limit <- 10
     }
-   ```
+```
 
 
 4.  (`-c` <b>`gold_standard_file_path`</b>) or (`--cluster` <b>`gold_standard_file_path`</b>): This parameter stores the path to the gold standard file that you curated.
