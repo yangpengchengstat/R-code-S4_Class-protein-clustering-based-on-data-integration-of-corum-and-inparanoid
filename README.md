@@ -92,9 +92,6 @@ Protein.Complexes.Gold.Standard.Prediction.Rice <- new("Protein.Complexes.Gold.S
 
 clustering_rice <- ProteinComplexGoldStandardPredictionWithinCORUMOrthologousComplexes(Protein.Complexes.Gold.Standard.Prediction.Rice)
 ```
-
-
-
 ---
 
 ## Hyperparameter Tuning
