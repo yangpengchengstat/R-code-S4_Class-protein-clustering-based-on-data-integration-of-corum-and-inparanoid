@@ -101,8 +101,9 @@ As SOM and AP are unsupervised learning, the process of training this model invo
 
 ![hyperpara, width="10" height="15"](hyperparafig.PNG)
 
-
-We used the model with the hyperparameter $\theta^*$, the intersection of the$\theta_i^*$, as the prediction function. The the hyperparameters tuned from model training are listed below:
+We used the model with the hyperparameter $\theta_i^*$, the 
+We used the model with the hyperparameter
+$\theta^*$, the intersection of the$\theta_i^*$, as the prediction function. The the hyperparameters tuned from model training are listed below:
  
 1. (<b>`The combination weight`</b>) : the combination weight of "WCCd3" and "euclidean". After training, the weight of 0.35 were assigned to "WCCd3" and 0.15 to "euclidean".
 
