@@ -156,11 +156,10 @@ For the two-step clustering analysis, we determined three parameters of the clus
     }
 ```
 
-
-4.  (<b>`The merging threshold for the AP algorithm`</b>) or (<b>`input preference in AP`</b>): This parameter stores the path to the gold standard file that you curated.
+3.  (<b>`The merging threshold for the AP algorithm`</b>) or (<b>`input preference in AP`</b>): This parameter stores the path to the gold standard file that you curated.
 
 ```
-if (num_p<4){
+    if (num_p<4){
       apc <- apcluster(s=s, q=parameters_APC$q_1, maxits=parameters_APC$maxits, convits=parameters_APC$convits, lam=parameters_APC$lam, detail=parameters_APC$detail)
     }else if (num_p>3 & num_p<6){
       apc <- apcluster(s=s, q=parameters_APC$q_2, maxits=parameters_APC$maxits, convits=parameters_APC$convits, lam=parameters_APC$lam, detail=parameters_APC$detail)
