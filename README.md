@@ -98,7 +98,7 @@ clustering_rice <- ProteinComplexGoldStandardPredictionWithinCORUMOrthologousCom
 
 ---
 
-## Parameter Definition
+## Parameter Tuning
 
 For the two-step clustering analysis, we determined three parameters of the clustering algorithms,including the weight w on "WCCd", the number of clusters in SOM, and the merging threshold for the AP algorithm.
 
