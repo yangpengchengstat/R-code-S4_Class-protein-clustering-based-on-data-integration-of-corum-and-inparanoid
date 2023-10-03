@@ -101,45 +101,11 @@ clustering_rice <- ProteinComplexGoldStandardPredictionWithinCORUMOrthologousCom
 ## Hyperparameter Tuning
 
 For the two-step clustering analysis, we determined three parameters of the clustering algorithms,including the weight w on "WCCd", the number of clusters in SOM, and the merging threshold for the AP algorithm.
-As SOM and AP are unsupervised learning, the process of training this model involves choosing the optimal hyperparameters such that the clustering algorithm will correctly label proteins in orthocomplexes where the memberships of the subunits are known. The two-stage model transferred knowledge between the five supervised clustering tasks by tuning the hyperparameters until all the 4 (sub)complexes have been clustered in consistent with the true memberships.
+As SOM and AP are unsupervised learning, the process of training this model involves choosing the optimal hyperparameters such that the clustering algorithm will correctly label proteins in orthocomplexes where the memberships of the subunits are known. The two-stage model transferred knowledge between the five supervised clustering tasks by tuning the hyperparameters until all the 4 (sub)complexes have been clustered in consistent with the true memberships. Let $\theta_i^*$ denote the hyperparameter tuned from model training on the data set containing known subcomplex, where i=19S, 20S, 14-3-3RAF, 14-3-3HAF, Exosome.
 
-As SOM and AP are unsupervised learning, the process of training this model involves choosing the optimal hyperparameters such that the clustering algorithm will correctly label proteins in orthocomplexes where the memberships of the subunits are known. The two-stage model transferred knowledge between the five supervised clustering tasks by tuning the hyperparameters until all the five (sub)complexes have been clustered in consistent with the true memberships. We defined the trained model as
 
-$ \begin{equation}
- f_M(x|v^*,w^*,q^*) =
-  \begin{cases}
-    f_{SOM}(x|v^*,w^*)=m       \\
-    f_{AP}(x, m|q^*, w^*)=y   
-  \end{cases}
-  x\in C_i, \- \forall C_i \in \text{known} 
-\end{equation}$
 
-The trained model set is the set of trained functions with all possible combinations of optimal hyperparameters, 
-\begin{equation}
-F_{M}=\{f_{M} : f_M(x|v^*,w^*,q^*) = y \} 
-\end{equation}
-As the model is some constrained function, the trained model set is a subset of  $\{\bigcap F_{C_i}, C_i \in \text{known}\}$. Let $\theta=(v,w,q)$ be the combination of the hyperparameters.
-\begin{figure}[ht]
-    \centering
-\begin{tikzpicture}
-  \begin{scope}[opacity=0.5]
-      \fill[red]   (90:1.2) circle (2);
-    \fill[green] (180:1.2) circle (2);
-    \fill[blue]  (270:1.2) circle (2);
-    \fill[orange]  (360:1.2) circle (2);
-    
-     \end{scope}
-       \node at ( 180:2.3)    {$\theta_{19S\oplus 20S}^{*}$};
-  \node at (90:2.3)    {$\theta_{14-3-3RAF}^{*}$};
-  \node at (270:2.3)    {$\theta_{14-3-3HAF}^{*}$};
-  \node at (360:2.3)    {$\theta_{Exosome}^{*}$};
-  
-  \node [font=\Large] {$\theta^{*}$};
-     \end{tikzpicture}
-       \caption{Illustration of intersection of the five sets of target hyperparameters.}
-    \label{fig3}
-\end{figure}
-
+ 
 1. (<b>`The combination weight`</b>) : the combination weight of "WCCd3" and "euclidean". After training, the weight of 0.35 were assigned to "WCCd3" and 0.15 to "euclidean".
 
 2. (<b>`The number of clusters in SOM`</b>) or (<b>`the structure of neurons of SOM`</b>): After training, the relationship between the number of proteins in the orthocomplex are defined as follows:
