@@ -9,7 +9,7 @@ The program diagram above is an illustration of the small world analysis. The "S
 ---
 
 ## Introduction
-The project addresses a fundamental issue of using CORUM complexes as reference knowledge in evaluation of protein complex predictions. In plant cell extracts, co-fraction mass spectrometry (CFMS) data and some published literature indicated that fully assembled CORUM complexes rarely exist. Using inaccurate gold standards would result in a wrong validation dataset, misleading prediction models to unreliable predictions. To overcome this issue, we have developed machine learning approaches to identify a refined set of gold standards by integrating the information of CORUM and CFMS. I hope you and your reviewers find the.
+The project addresses a fundamental issue of using CORUM complexes as reference knowledge in evaluation of protein complex predictions. In plant cell extracts, co-fraction mass spectrometry (CFMS) data and some published literature indicated that fully assembled CORUM complexes rarely exist. Using inaccurate gold standards would result in a wrong validation dataset, misleading prediction models to unreliable predictions. To overcome this issue, we have developed machine learning approaches to identify a refined set of gold standards by integrating the information of CORUM and CFMS.
 
  
 ## Install
@@ -106,7 +106,8 @@ For the two-step clustering analysis, we determined three parameters of the clus
 
 1. (<b>`user_weight`</b>) : the combination weight of "WCCd3" and "euclidean". After training, the weight of 0.35 were assigned to "WCCd3" and 0.15 to "euclidean".
 
-2. <b>`the number of clusters in SOM`</b> or (` <b>`the structure of neurons of SOM`</b>): After training, the relationship between the 
+2. (<b>`the number of clusters in SOM`</b>) or (<b>`the structure of neurons of SOM`</b>): After training, the relationship between the number of proteins in the orthocomplex are defined as follows:
+3. 
 ```
    num_p <- length(prot_id_rep_c)
     
