@@ -102,6 +102,8 @@ clustering_rice <- ProteinComplexGoldStandardPredictionWithinCORUMOrthologousCom
 
 For the two-step clustering analysis, we determined three parameters of the clustering algorithms,including the weight w on "WCCd", the number of clusters in SOM, and the merging threshold for the AP algorithm.
 As SOM and AP are unsupervised learning, the process of training this model involves choosing the optimal hyperparameters such that the clustering algorithm will correctly label proteins in orthocomplexes where the memberships of the subunits are known. The two-stage model transferred knowledge between the five supervised clustering tasks by tuning the hyperparameters until all the 4 (sub)complexes have been clustered in consistent with the true memberships. Let $\theta_i^*$ denote the hyperparameter tuned from model training on the data set containing known subcomplex, where i=19S, 20S, 14-3-3RAF, 14-3-3HAF, Exosome.
+
+![hyperpara](hyperparafig.png)
  
 1. (<b>`The combination weight`</b>) : the combination weight of "WCCd3" and "euclidean". After training, the weight of 0.35 were assigned to "WCCd3" and 0.15 to "euclidean".
 
