@@ -100,6 +100,8 @@ For the two-step clustering analysis, we determined three parameters of the clus
 As SOM and AP are unsupervised learning, the process of training this model involves choosing the optimal hyperparameters such that the clustering algorithm will correctly label proteins in orthocomplexes where the memberships of the subunits are known. The two-stage model transferred knowledge between the five supervised clustering tasks by tuning the hyperparameters until all the 4 (sub)complexes have been clustered in consistent with the true memberships. Let $\theta_i^*$ denote the hyperparameter tuned from model training on the data set containing known subcomplex, where i=19S, 20S, 14-3-3RAF, 14-3-3HAF, Exosome.
 
 ![hyperpara, width="10" height="15"](hyperparafig.PNG)
+
+We used the model with the hyperparameter $\theta^*$ (the intersection of the $\{\theta_i^*\}_{i=1}^{4}$), as the prediction function. The the hyperparameters tuned from model training are listed below:
  
 1. (<b>`The combination weight`</b>) : the combination weight of "WCCd3" and "euclidean". After training, the weight of 0.35 were assigned to "WCCd3" and 0.15 to "euclidean".
 
