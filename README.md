@@ -16,7 +16,6 @@ The project addresses a fundamental issue of using CORUM complexes as reference 
 
 1. First recommend to have R >= 4.2.0 
 
-
 ```
 $ install.packages("apcluster")
 $ install.packages("kohonen")
@@ -25,7 +24,6 @@ $ install.packages("kohonen")
      path...\R\win-library\R version...\kohonen\Distances
 3. copy and paste the file “wcc3.cpp” into “Distances” folder found in step 2.
 4. Set the path in row in the following R code and copy and paste "S4 data integration corum inparanoid clustering.R" and the input data for rice clustering in the folder under the path that just created.
-
 
 Here is a list of dependent packages:
 
@@ -156,7 +154,9 @@ For the two-step clustering analysis, we determined three parameters of the clus
     }
 ```
 
-3.  (<b>`The merging threshold for the AP algorithm`</b>) or (<b>`input preference in AP`</b>): This parameter stores the path to the gold standard file that you curated.
+3.  (<b>`The merging threshold for the AP algorithm`</b>) or (<b>`input preference in AP`</b>): After training, the input preference was defined according to the number of the orthocomplex as below:
+
+   if # of prots < 4, then the preference, q_1=0.95; else if of 3 < prots < 6, then q_2=0.85; else, q_3=0.8.
 
 ```
     if (num_p<4){
