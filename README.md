@@ -102,10 +102,9 @@ clustering_rice <- ProteinComplexGoldStandardPredictionWithinCORUMOrthologousCom
 
 ## Parameter Definition
 
-user_weight is the combination weight of "WCCd3" and "euclidean". 
-
+ For the two-step clustering analysis, we determined three parameters of the clustering algorithms,including the weight w on "WCCd", the number of clusters in SOM, and the merging threshold for the AP algorithm.
 1. (<b>`user_weight`</b>) : the combination weight of "WCCd3" and "euclidean". After training, the weight of 0.35 were assigned to "WCCd3" and 0.15 to "euclidean".
-2. <b>`input_directory`</b>: This parameter stores the input directory where you store your elution profile file. It is recommended to use the abosulte path instead of relative path.
+2. <b>`the number of clusters in SOM`</b> or (` <b>`the structure of neurons of SOM`</b>): After training, the relationship between the 
 ```
    num_p <- length(prot_id_rep_c)
     
