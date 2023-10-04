@@ -181,9 +181,11 @@ The data sets used in this project are listed below. The data sets can be downlo
 
 5.  (<b>`Rice_prots_reproducible_single_peak.RData`</b>) and (<b>`Rice_protsreproducible_multiple_peak.RData`</b>): the lists of protein ID's of single peak and multiple peaks.
 
-6.  (<b>`rice_protnames_data.RData`</b>): the rice protein names.
+6.  (<b>`CORUM_human_stoichiometry.RData`</b>): the stoichiometry information in the RCSB Protein Data Bank (RCSB PDB) for the selected rice orthocomplexes.
 
-7.  (<b>`rice_mmono_data.RData`</b>): the monomeric masses of rice proteins.
+7.  (<b>`rice_protnames_data.RData`</b>): the rice protein names.
+
+8.  (<b>`rice_mmono_data.RData`</b>): the monomeric masses of rice proteins.
 
 
 
