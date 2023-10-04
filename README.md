@@ -187,6 +187,7 @@ The data sets used in this project are listed below. The data sets can be downlo
 
 8.  (<b>`rice_mmono_data.RData`</b>): the monomeric masses of rice proteins.
 
+9. (<b>`Clustering_resultRice.RData`</b>): the predicted protein complexes derived from the rice dataset (Lee et al., 2021).
 
 
 
