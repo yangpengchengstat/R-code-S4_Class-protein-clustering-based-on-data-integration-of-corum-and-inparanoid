@@ -4,7 +4,7 @@ A machine learning-based approach to identify reliable gold standards for protei
 
 ![Small world analysis](smallworldanalysisfig.png)
 
-The program diagram above is an illustration of the small world analysis. The "Sim 92.5%" and "G dist 7.5%" are 95% and 5% which were used in the project.
+The program diagram above is an illustration of the small world analysis. Note: Instead of 92.5% and 7.5% in "Sim 92.5%" and "G dist 7.5%", 95% and 5% which were used in the project.
 
 ---
 
@@ -169,7 +169,7 @@ We used the model with the hyperparameter $\theta_i^*$, the intersection shown i
 ```
 ## Input Data Description
 
-The data sets used in this project are listed below. The data sets can be downloaded from inpu data.
+The data sets used in this project are listed below. The data sets can be downloaded from "Input data.rar".
  
 1. (<b>`Data_CORUM_human.RData`</b>): CORUM human complexes data set.
 
@@ -184,8 +184,7 @@ The data sets used in this project are listed below. The data sets can be downlo
 6.  (<b>`rice_protnames_data.RData`</b>): the rice protein names.
 
 7.  (<b>`rice_mmono_data.RData`</b>): the monomeric masses of rice proteins.
-  
-8.  (<b>`Rice_Reproducible_SEC_data_plant.RData`</b>): $M_{app}$, $M_{calc}$, $R_{app}$, and Gaussion peak fraction locations.
+
 
 
 
